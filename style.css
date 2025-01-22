@@ -29,10 +29,26 @@ nav {
     background-position: center;
     height: 150px;
     width: 150px;
+    z-index: 9999;
 }
 .logo:hover{
     background-image: url(Images/Aldenaire-Hover.png);
 }
+.fallback-text {
+    position: absolute;
+    color: #d7af6a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: color 0.3s;
+    transform: translate(200%, -700%);
+}
+.fallback-text:hover{
+    color: rgb(248, 230, 230);
+}
+
 .navbar-links {
     display: flex;
     gap: 20px;
