@@ -6,13 +6,17 @@
     <title>Arete University Spartans Page</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /*Setting the image for the slide-box (see style.css on .slide-box section to learn more)*/
         .slide-box {
             background-image: url(Images/studentSport.jpeg);
         }
 
+        /*Styling for the default text box on the page*/
         .default-box {
+            /*Setting the position relative to other elements on he site and making the section effect the position of other section*/
             position: relative;
             background-color: #d7af6a;
+            /*Padding for space around the elements to leave null-space*/
             padding: 20px 20px;
             line-height: 1rem;
             height: 1100px;
@@ -20,71 +24,96 @@
             flex-direction: column; 
             align-items: center;
         }
+        /*h1 style for h1 elements in the default-box*/
         .default-box h1 {
             font-size: 2.6rem;
             text-align: center;
             color: #350443;
         }
+        /*Same thing as h1 styling in default-box but for h3*/
         .default-box h3 {
             font-size: 1.2rem;
             text-align: center;
             color: #350443;
         }
+        /*Styling for the interactive section of clubs*/
         .interact-clubs {
             display: flex;
             justify-content: center;
             align-items: center;
         }
+        /*Styling for the paragraph element inside of the interact-clubs section*/
+        /*USed to make the buttons (with js) for opening the find clubs or create clubs section*/
+        /*Using pargraph to create a hierarchy, h1 for the title of the section, h3 for the short description of the section and paragraoh for buttons to manage the section*/
         .interact-clubs p {
             text-align: center;
             font-size: 1.2rem;
             color: #350443;
             padding: 0 2.5%;
         }
+        /*Changing style for when the user hovers over the paragraph in the interact clubs class*/
         .interact-clubs p:hover {
+            /*Changing the font weight to bold to signal to the user that this can be interacted with*/
             font-weight: bold;
+            /*Changing the cursor to pointer to show the user this can be interacted with, as this is not done by defaul since this is not a button*/
             cursor: pointer;
         }
+        /*Arrow under the button text (paragraph) to show what section (either view clubs or create a club) is collapsed and which is expanded or if both are collaped*/
         .arrow {
             display: inline-block;
             color: #350443;
+            /*Transition for the transform property to make the arrow smothly change which direction it is pointing*/
             transition: transform 0.3s;
         }
+        /*Sepperate class to change the rotation of the arrow when .down is active*/
         .arrow.down {
             transform: rotate(90deg);
         }
 
+        /*Styling for the form to create a club*/
         .create-club-form {
             display: flex;
+            /*Aligning as a column as everything is stacked vertically*/
             flex-direction: column;
             text-align: center;
             align-items: center;
             background-color: #350443;
+            /*Setting a fixed width relative to the view port width*/
             width: 40vw;
             padding: 20px;
+            /*Rounding corners*/
             border-radius: 10px;
+            /*Adding a shadow to create some bretter visual and 3d effect of the form box on the page*/
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
+        /*Styling for labels on the form*/
         .create-club-form label {
             color: #d7af6a;
             padding: 10px;
             font-weight: bold;
         }
+        /*Styling for inputs on the form*/
         .create-club-form input {
             background: #d7af6a;
             color: #350443;
             padding: 1rem;
             border-radius: 5px;
+            /*Removing border and box shadow*/
             border: none;
             box-shadow: none;
+            /*Making the width 50%*/
             width: 50%;
         }
+        /*Changing the styling of the input when the user clicks on it (focus)*/
         .create-club-form input:focus {
+            /*Inverting the colors from when it is not focused (background and text color and outline color*/
             background: #350443;
             color: #d7af6a;
             outline: 5px solid #d7af6a;
         }
+        /*ids for the club info text area and submit button in the form as they are not inputs*/
         #clubInfo, #submit {
+            /*Mostly same styling as inputs*/
             background: #d7af6a;
             color: #350443;
             padding: 1rem;
@@ -93,35 +122,50 @@
             resize: none;
             box-shadow: none;
         }
+        /*Styling for focused when the text area is clicked*/
         #clubInfo:focus {
             background: #350443;
             color: #d7af6a;
             outline: 5px solid #d7af6a;
         }
+        /*styling for the table items (list of clubs)*/
         td {
             padding: 10px;
             border: 1px solid #350443;
             color: #350443;
         }
+        /*Styling for the header of the table*/
         th{
             padding: 2%;
             font-size: 1.1rem;
         }
 
+        /*Id to style the image that is sticky (when scrolled it stays in place at 150px and then the next section scrolls over it*/
         #wide-sticky-img {
             position: sticky;
             top: 150px;
         }
 
+        /*Class to style the calender*/
         .calendar {
+            /*Displaying it as a grid*/
             display: grid;
+            /*Setting the grid rows to repeat 5 times*/
             grid-template-rows: auto repeat(5, 1fr);
+            /*Making the width 80 view port width*/
             width: 80vw;
             margin: 20px auto;
+            /*
+                Seting overflow settings to auto
+                From testing i have done there is no overflowing of content
+                However just in case i set the setting to auto
+            */
             overflow: auto;
         }
+        /*class for the title of the days of the calender*/
         .day-title {
             display: grid;
+            /*Making the grid columns to repeat 7 (7 days of the week)*/
             grid-template-columns: repeat(7, 1fr);
             color: #350443;
             font-weight: bold;
@@ -130,26 +174,37 @@
             font-size: 2rem;
             height: 50px;
         }
+        /*Class for each week style*/
         .week {
             display: grid;
             color: #350443;
+            /*grid set to repeat in for 7 columns for each day of the week to have a box*/
             grid-template-columns: repeat(7, 1fr);
         }
+        /*Class for the days boxes (in each grid the cells of the grid have the day class to align things within the cell*/
         .day {
+            /*Making a border around each cell*/
             border: 2.5px solid #350443;
             height: 75px;
+            /*Displaying asflex to align content within the box*/
             display: flex;
+            /*Setting the flex direction to column as items within the */
             flex-direction: column;
+            /*Making space between the content inside the day box*/
             justify-content: space-between;
             position: relative;
+            /*Adding padding to the box for nullspace and visual look*/
             padding: 5px;
         }
+        /*Class for the date (number) inside of the day class (each cell)*/
         .date {
             font-size: 1.2rem;
             font-weight: bold;
             color: #350443;
+            /*Positioning it absolute so it does not affect and does not get affected by the event in each day*/
             position: absolute;
         }
+        /*Class for the events (sports, clubs, etc) for each day cell*/
         .event {
             font-size: 0.8rem;
             font-weight: bold;
@@ -157,42 +212,55 @@
             text-align: center;
             margin-top: auto; 
         }
+        /*Hover settings for the day (each cell) to change color and change color of the borer (invert colors)*/
         .day:hover{
             background-color: #350443;
             border: 2.5px solid #d7af6a;
         }
+        /*Hover settings for the .event and .date inside of the .day class to change their colors to be visible on the inverted background within the cell*/
         .day:hover .event, .day:hover .date{
             color: #d7af6a;
         }
 
+        /*Changing the style of the pragraph tag inside of the support class*/
         .support p{
             font-size: 1.1rem;
             color: #350443;
             text-align: center;
         }
+        /*Changing the font weight to bold for the category class (grade levels) inside the support class*/
         .support .category-text{
             font-weight: bold;
         }
     </style>
 </head>
 <body>
+    <!--Headder (semantic tag) which contains the nav bar-->
     <header>
+        <!--Nav (semantic tag)-->
         <nav>
+            <!--Home page link-->
             <a href="index.html" class="logo-link">
+                <!--Logo used as main button to go home-->
                 <div class="logo"></div>
+                <!--fallback text also works as a button to go home-->
                 <p class="fallback-text">Home link</p>
             </a>
+            <!--Center nav (one with the "I Am A" links)-->
             <div class="center-nav">
+                <!--Subtitle to show what the links mean (who their for)-->
                 <p class="sub-title">
                     I AM A
                 </p>
+                <!--div for the navbar links-->
                 <div class="navbar-links">
+                    <!--Actual links, no class as it is styled by changing the anchor styling within the navbar-links class-->
                     <a href="spartan.html">spartan</a>
                     <a href="futurespartan.html">future spartan</a>
                     <a href="parent.html">parent</a>
                 </div>
             </div>
-
+            <!--Same thing as center nav links except they are not inside the center nav div and hence not in the center-->
             <div class="navbar-links">
                 <a href="#visit">Visit</a>
                 <a href="#help">Help</a>
@@ -200,33 +268,48 @@
             </div>
         </nav>
     </header>
+    <!--Main content of the page (semantic tag)-->
     <main>
+        <!-- Section for the slide box -->
         <section class="slide-box">
+            <!-- Link doesnt go anywhere but for a completed site could be used -->
             <a href="">
+                <!-- Using h1 for the main title of the section and h3 for the sub title to make a proper heirarchy -->
                 <h1>
                     JOIN A SPORTS TEAM
                 </h1>
             </a>
             <h3>FIND OUT ABOUT TRY OUTS</h3>
         </section>
+        <!-- Default box section (text on a gold or peach or whatever color it is i have) -->
         <section class="default-box">
+            <!-- Again using heirarchy to guide the user with h1 and h3 for title and sub title -->
             <h1>DISCOVER CLUBS</h1>
             <h3>FIND YOUR PASSION BY JOINING A CLUB AT ARETE UNIVERSITY</h3>
+            <!-- div for the interact clubs section -->
             <div class="interact-clubs">
+                <!-- paragraph tags for the clickable text to collapse and expand sections-->
+                <!-- Used AI to make the clickable part -->
                 <p>
+                    <!-- span for the clickable text that onlcik toggles view-clubs-content -->
                     <span class="clickable" onclick="toggleArrow(this, 'view-clubs-content')">VIEW CLUBS</span>
                     <span class="arrow">&#9654;</span>
+                    <!-- entitity for the arrow itself -->
                 </p>
-                
+                <!-- Same thing here -->
                 <p>
                     <span class="clickable" onclick="toggleArrow(this, 'create-club-content')">CREATE A CLUB</span>
                     <span class="arrow">&#9654;</span>
                 </p>
             </div>
+            <!-- div for the contents of the club section that collapses and expands -->
             <div class="club-content">
+                <!-- div for the view-clubs content and setting the display to none so it only shows when the arrow is togled onclick -->
                 <div id="view-clubs-content" style="display: none;">
+                    <!-- Table to list all the clubs with full width (within the club content div) and setting the border to collapse so that all cells of the table are together and share a border-->
                     <table style="width: 100%; border-collapse: collapse;">
                         <thead>
+                            <!-- Styling for table row that contains the heading of the table -->
                             <tr style="background-color: #350443; color: #d7af6a;">
                                 <th>Club Name</th>
                                 <th>Location</th>
@@ -235,6 +318,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- List of clubs, each row has the name, location, organizer and contact info -->
                             <!--ALl clubs are randamly generated by AI-->
                             <tr>
                                 <td>Debate Club</td>
@@ -347,8 +431,13 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!-- div for the collapsable section to create a club form -->
                 <div id="create-club-content" style="display: none;">
+                    <!-- form with create club form class -->
                     <form action="#" method="POST" class="create-club-form">
+                        <!-- every input in the form is required -->
+                         <!-- includes, full name (text), student ID (tel because it is same format), student Email(email), club name(text), club info (text area) meeting date (date, with someone to organize the club) -->
                         <label for="fullName">Full Name</label>
                         <input type="text" id="fullName" name="fullName" required placeholder="Your full name">
         
@@ -367,9 +456,12 @@
                         <label for="meetingDate">Meeting Date</label>
                         <input type="date" id="meetingDate" name="meetingDate" required>
         
+                        <!-- button to submit the form -->
                         <button type="submit" style="margin: 20px;" id="submit">Submit</button>
                     </form>
                 </div>
+
+                <!-- youtbe video that shows when both view clubs and create clubs are collapsed -->
                 <div id="youtube-video">
                     <!---Coppied from youtube when pressing share and choosing embed and only changed the inline style for width and height and margin-->
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/2F8j5iLDNLE?si=bCKnDr25O5J-TtK0" title="YouTube video player" 
@@ -379,12 +471,18 @@
                 </div>
             </div>
         </section>
+        <!-- section for the wide image that is postion sticky -->
         <section id="wide-sticky-img">
+            <!-- img for the section with alt text and width at 100% -->
             <img src="Images/studentWide.jpg" alt="Students walking on outside on the university campus" style="width: 100%;">
         </section>
+        <!-- another section with the default box class -->
         <section class="default-box">
+            <!-- div for the calender -->
             <div class="calendar">
+                <!-- title of the calender -->
                 <h1>SCHOOL CALENDAR</h1>
+                <!-- titles of each day -->
                 <div class="day-title">
                     <div>Sun</div>
                     <div>Mon</div>
@@ -395,10 +493,13 @@
                     <div>Sat</div>
                 </div>
                 <!---All events are randomly generated by AI-->
+                <!-- each week (row) is in its own div -->
                 <div class="week">
+                    <!-- Each day is in its own div -->
                     <div class="day"></div>
                     <div class="day"></div>
                     <div class="day">
+                        <!-- within the day div there is a span for the date with a number and divs for events -->
                         <span class="date">1</span>
                         <div class="event">Bball: 5:35pm</div>
                     </div>
@@ -419,7 +520,6 @@
                     <div class="day">
                         <span class="date">5</span>
                         <div class="event">Debate: 2:00pm</div>
-                        <div class="event">Track: 3:30pm</div>
                         <div class="event">Football: 7:00pm</div>
                     </div>
                 </div>
@@ -449,8 +549,7 @@
                     <div class="day">
                         <span class="date">11</span>
                         <div class="event">Robotics: 2:00pm</div>
-                        <div class="event">Gaming: 4:00pm</div>
-                        <div class="event">Bball: 6:00pm</div>
+                        <div class="event">Track: 4:00pm</div>
                     </div>
                     <div class="day">
                         <span class="date">12</span>
@@ -547,8 +646,11 @@
                     <div class="day"></div>
                 </div>
             </div>
+            <!-- Div for the support section -->
             <div class="support">
+                <!-- Using a hierarchy with a title (h1) a sub title (h3) a category title (bold p) and the person (p)  -->
                 <h1>NEED SUPPORT?</h1>
+                <!-- using a span within h3 to warn that it is not real contact inf and using vertical-aling super to put to top of line and making smaller with font size -->
                 <h3>GET IN CONTACT WITH A STUDENT SUPPORT STAFF <span style="font-size: 0.8rem; vertical-align: super;">*not actual contact information</span></h3>
                 <p class="category-text">Freshman Students</p>
                 <p>Laurrette Maurrioener - +1(204)623-8434 - LMaurrioener@gmail.com</p>
@@ -563,28 +665,34 @@
             </div>
         </section>
     </main>
+    <!-- Footer of the page acts as a simplified nav bar and uni name and contact info and address-->
     <footer>
+        <!-- logo for home button -->
         <a href="index.html" class="logo-link">
             <div class="logo"></div>
         </a>
+        <!-- title for the uni name (h1) and contact info and address (h2) -->
         <div class="title">
             <h1>ARETE UNIVERSITY</h1>
             <h2>50 Frontier Trl, Winnipeg, MB R3Y 2H1</h2>
             <h2>+1(204)489-8989</h2>
         </div>
+        <!-- div for the I Am A links -->
         <div class="IAMA">
             <p class="link-title">I Am A</p>
             <a href="spartan.html">Spartan</a>
             <a href="futurespartan.html">Future Spartan</a>
             <a href="parent.html">Parent</a>
         </div>
-        <div class="VHP">
+        <!-- div for other links -->
+        <div class="other-links">
             <p class="link-title">Other Links</p>
             <a href="">Visit</a>
             <a href="">Help</a>
             <a href="">Donate</a>
         </div>
     </footer>
+    <!-- script to collapse and expand things in the discover clubs secion adn show the according conent or to show the iframe when both are collapsed -->
     <script>
         //the code was made by chatgpt
         function toggleArrow(clickedText, contentId) {

@@ -1,29 +1,41 @@
+/*Default body style with no margin and a basic web safe sans serif font*/
 body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
 
+/*Styling for the navigation bar accross all pages.*/
 nav {
     display: flex;
+    /*Make all links an equal space between them*/
     justify-content: space-between;
     align-items: center;
     background-color: #350443;
     padding: 0 50px;
     font-size: 1.2rem;
+    /*Setting the position to fixed in the same place even when the site scrolls*/
     position: fixed;
     width: 100%;
+    /*Using box-sizing : border-box to make the sizes of the nav bar include the padding, to fit it in the screen effectivly*/
     box-sizing: border-box;
+    /*Bringing the nav bar to the front*/
     z-index: 1000;
 }
+/*Center part of the nav bar (one that says "I AM A" and the three links)*/
 .center-nav {
     display: flex;
+    /*Displaying items in a column*/
     flex-direction: column;
     align-items: center;
+    /*Moving it slightly up*/
     margin-top: -2%;
     margin-left: 50px;
+    /*Seting the text to always be uppercase*/
     text-transform: uppercase;
 }
+/*Logo for the home button on the nav bar*/
 .logo{
+    /*Using a background-image to make the image for the logo*/
     background-image: url('Images/Aldenaire.png');
     background-size: cover;
     background-position: center;
@@ -31,10 +43,14 @@ nav {
     width: 150px;
     z-index: 9999;
 }
+/*Changing it to a different version of the logo that is in a different color when hovering*/
 .logo:hover{
+    /*Using background-image in css rather than img in html to be able to change the image when hovering*/
     background-image: url(Images/Aldenaire-Hover.png);
 }
+/*An alternative way that also works as a home button for when the user has images disabled and cant see the logo home button*/
 .fallback-text {
+    /*Making it absolute so it doesnt depend on other elements for its positioning and doesnt effect other elements posistions*/
     position: absolute;
     color: #d7af6a;
     display: flex;
@@ -42,17 +58,21 @@ nav {
     align-items: center;
     font-size: 1.2rem;
     border-radius: 5px;
+    /*Making a transition so that the text color changes smoothly*/
     transition: color 0.3s;
     transform: translate(200%, -700%);
 }
+/*Changes to a white color when the user hovers over the text*/
 .fallback-text:hover{
     color: rgb(248, 230, 230);
 }
 
+/*Making a gap between the links of 20 pixels*/
 .navbar-links {
     display: flex;
     gap: 20px;
 }
+/*Setting the style for all links in the navbar-links class*/
 .navbar-links a {
     color: #d7af6a;
     text-decoration: none;
@@ -62,13 +82,19 @@ nav {
 .navbar-links a:hover {
     color: rgb(248, 230, 230);
 }
+/*Style for the "I AM A" text sub title*/
 .sub-title {
     color: #d7af6a;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.4rem;
     transition: color 0.3s;
 }
-
+/*Styling for the image with text on the very top of every single page*/
+/*
+    IT is called slibe-box because ideally it would be a slide show that automatically slides through different images, 
+    each with its own text and content for the user to read or click (if it is a link)
+*/
 .slide-box {
     position: relative;
     background-size: cover;
@@ -79,34 +105,45 @@ nav {
     width: 100%;
     box-sizing: border-box;
 }
+/*Editing the styling of both the h1 and h3 elements that are inside of the slibe-box*/
 .slide-box h1, .slide-box h3 {
     text-align: start;
     margin-left: 7.5%;
+    /*Adding a shadow to the text so it is still visible even on lighter images*/
     text-shadow: 
         -1px -1px 0 rgba(0, 0, 0, 0.8),  
         1px -1px 0 rgba(0, 0, 0, 0.8),
         -1px 1px 0 rgba(0, 0, 0, 0.8),
         1px 1px 0 rgba(0, 0, 0, 0.8);
 }
+/*Editing the style of only the h1 element inside the slide box*/
 .slide-box h1 {
     font-size: 3rem;
     margin-bottom: 20px;
     width: 500px;
 }
+/*Removing styling from links within the slide-box*/
+/*
+    The links go nowhere but on a completed website as this it would go either to a new page or auto 
+    scroll to the part of the page where it talks about that topic
+*/
 .slide-box a {
     text-decoration: none;
     color: inherit;
     display: inline;
 }
+/*Underlining and changing colors when he user hovers over the links inside of the slide-box*/
 .slide-box a:hover {
     text-decoration: underline;
     color: #d7af6a;
 }
+/*Editing the style of only the h3 element inside the slide box*/
 .slide-box h3 {
     font-size: 1.3rem;
     margin-bottom: 20px;
 }
 
+/*Style for the footer of the site which acts as a second nav bar but simplified as well as conact info and locatio of the school*/
 footer {
     display: flex;
     justify-content: space-between;
@@ -115,35 +152,42 @@ footer {
     background-color: #350443;
     padding: 20px 50px;
 }
-footer img {
-    height: 150px;
-}
-.IAMA, .VHP {
+/*Classes for the two categories of links in the simplified nav bar footer*/
+/*One is for the "I AM A" links (spartan, future spartan, parent*/
+/*Other is for the other links (Visit Help Donate)*/
+.IAMA, .other-links{
     text-align: center;
     color: #d7af6a;
     font-size: 1.2rem;
     display: flex;
+    /*Displaying it as a column because the links are stacked vertically*/
     flex-direction: column;
     justify-content: flex-start;
 }
+/*Title of the link categories "I Am A" & "Other Links"*/
 .link-title{
     font-size: 1.4rem;
     font-weight: bold;
 }
+/*Title is the text that says the university name and contact info and address*/
 .title {
     text-align: center;
     color: #d7af6a;
 }
+/*Styling for h1 element in the title*/
 .title h1{
     font-size: 2.8rem;
 }
+/*Styling for h2 element in the title*/
 .title h2{
     font-size: 1.2rem;
 }
+/*Making so all links(anchors) in the footer are default styling and have no link styling*/
 footer a {
     text-decoration: none;
     color: inherit;
 }
+/*Changing color when links are hovered over in the footer*/
 footer a:hover {
     color: rgb(248, 230, 230);
 }
