@@ -9,6 +9,109 @@
         .slide-box {
             background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.pexels.com%2Fvideos%2F7683855%2Fadult-architecture-boy-building-7683855.jpeg%3Fcs%3Dsrgb%26dl%3Dpexels-rodnae-productions-7683855.jpg%26fm%3Djpg&f=1&nofb=1&ipt=b6b70fcd7e0dbc04272e099570c2b523ee60954b64bc1bd6b921ed301d98196e&ipo=images);
         }
+        .financial-box{
+            /*Setting the position relative to other elements on he site and making the section effect the position of other section*/
+            position: relative;
+            background-color: #d7af6a;
+            /*Padding for space around the elements to leave null-space*/
+            padding: 20px 20px;
+            line-height: 1rem;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+        }
+        .financial-box h1{
+            font-size: 2.6rem;
+            text-align: center;
+            color: #350443;
+        }
+        .financial-box h3{
+            font-size: 1.2rem;
+            text-align: center;
+            color: #350443;
+        }
+
+        .scholarships-folder {
+            border-radius: 10px;
+            width: 800px;
+            height: 400px;
+            background: #350443;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-top: 45px;
+            color: #d7af6a;
+            padding: 0 25px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: flex-start;
+            padding: 0 25px;
+            gap: 20px;
+            position: absolute;
+            top: -40px;
+        }
+        .tab {
+            background: #d7af6a;
+            border: 5px solid #350443;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 10px 10px 0 0;
+            transition: background-color 0.3s, color 0.3s;
+            color: #350443;
+        }
+        .tab:hover {
+            background-color: #350443;
+            color: rgb(248, 230, 230);
+        }
+        .tab.active {
+            background-color: #350443;
+            color: #d7af6a;
+            font-weight: bold;
+        }
+        .content {
+            padding: 15px 0;
+        }
+
+        .card {
+            background-color: #d7af6a;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            height: 100px;
+            line-height: 20px;
+            border: 4px solid #d7af6a;
+        }
+        .card:hover{
+            background-color: #350443;
+            border: 4px solid #d7af6a;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+            color: #350443;
+        }
+        .card .amount {
+            font-size: 1.2rem;
+            margin: 5px 0;
+            color: #350443;
+        }
+        .card .provider {
+            font-size: 0.9rem;
+            margin-top: 5px;
+            color: #350443;
+        }
+        .card:hover h3, .card:hover .amount, .card:hover .provider{
+            color: #d7af6a;
+        }
     </style>
 </head>
 <body>
@@ -45,6 +148,88 @@
             </a>
             <h3>PAVE THE PATH TO EXCELLENCE FOR YOUR CHILDREN</h3>
         </section>
+        <section class="financial-box">
+            <h1>DISCOVER SCHOLARSHIPS AND GRANTS</h1>
+            <h3>FINANCES SHOULD NEVER BE A REASON TO NOT ACHIEVE MASTERY</h3>
+            <div class="scholarships-folder">
+                <div class="tabs">
+                    <button class="tab active" onclick="showContent('merit')">Merit-Based</button>
+                    <button class="tab" onclick="showContent('need')">Need-Based</button>
+                    <button class="tab" onclick="showContent('other')">Other</button>
+                </div>
+                <div class="content" id="merit">
+                    <h2>Merit-Based Scholarships</h2>
+                    <div class="card-container"> <!-- New wrapper for the cards -->
+                        <div class="card">
+                            <h3>Academic Excellence Scholarship</h3>
+                            <p class="amount">$5,000</p>
+                            <p class="provider">Arete University</p>
+                        </div>
+                        <div class="card">
+                            <h3>Leadership Award</h3>
+                            <p class="amount">$3,000</p>
+                            <p class="provider">Community Foundation</p>
+                        </div>
+                        <div class="card">
+                            <h3>STEM Achievement Grant</h3>
+                            <p class="amount">$4,500</p>
+                            <p class="provider">Tech Innovators Inc.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Academic Excellence Scholarship</h3>
+                            <p class="amount">$5,000</p>
+                            <p class="provider">Arete University</p>
+                        </div>
+                        <div class="card">
+                            <h3>Leadership Award</h3>
+                            <p class="amount">$3,000</p>
+                            <p class="provider">Community Foundation</p>
+                        </div>
+                        <div class="card">
+                            <h3>STEM Achievement Grant</h3>
+                            <p class="amount">$4,500</p>
+                            <p class="provider">Tech Innovators Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content" id="need" style="display: none;">
+                    <h2>Need-Based Scholarships</h2>
+                    <div class="card">
+                        <h3>Access Grant</h3>
+                        <p class="amount">$3,500</p>
+                        <p class="provider">Arete University</p>
+                    </div>
+                    <div class="card">
+                        <h3>Emergency Financial Aid</h3>
+                        <p class="amount">$2,000</p>
+                        <p class="provider">Local Non-Profit Organization</p>
+                    </div>
+                    <div class="card">
+                        <h3>Need-Based Tuition Assistance</h3>
+                        <p class="amount">$4,000</p>
+                        <p class="provider">State Government</p>
+                    </div>
+                </div>
+                <div class="content" id="other" style="display: none;">
+                    <h2>Other Scholarships & Grants</h2>
+                    <div class="card">
+                        <h3>Diversity Scholarship</h3>
+                        <p class="amount">$2,500</p>
+                        <p class="provider">National Diversity Council</p>
+                    </div>
+                    <div class="card">
+                        <h3>Artistic Talent Grant</h3>
+                        <p class="amount">$3,000</p>
+                        <p class="provider">Cultural Arts Foundation</p>
+                    </div>
+                    <div class="card">
+                        <h3>Community Service Scholarship</h3>
+                        <p class="amount">$1,500</p>
+                        <p class="provider">Local Community Center</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
         <a href="index.html" class="logo-link">
@@ -68,5 +253,29 @@
             <a href="">Donate</a>
         </div>
     </footer>
+    <script>
+        function showContent(tab) {
+            // Hide all content divs
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+
+            // Show the selected content div
+            document.getElementById(tab).style.display = 'block';
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(t => {
+                t.classList.remove('active');
+            });
+
+            // Add active class to the clicked tab
+            const activeTab = document.querySelector(`.tab[onclick*="${tab}"]`);
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
